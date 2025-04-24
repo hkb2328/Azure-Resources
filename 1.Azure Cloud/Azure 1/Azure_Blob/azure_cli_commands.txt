@@ -1,0 +1,63 @@
+az storage account create --name <storage_account_name> --resource-group <resource_group> --location <location> --sku <sku>
+Description: Creates a new storage account.
+
+az storage account list --output table
+Description: Lists all storage accounts in your subscription.
+
+az storage account show --name <storage_account_name> --resource-group <resource_group>
+Description: Displays details about a specific storage account.
+
+az storage account delete --name <storage_account_name> --resource-group <resource_group>
+Description: Deletes the specified storage account.
+
+az storage account keys list --account-name <storage_account_name> --resource-group <resource_group>
+Description: Lists the access keys for a storage account.
+
+az storage account keys renew --account-name <storage_account_name> --key <key1_or_key2>
+Description: Regenerates one of the access keys for the storage account.
+
+az storage container create --name <container_name> --account-name <storage_account_name> --account-key <account_key>
+Description: Creates a new container within a storage account.
+
+az storage container list --account-name <storage_account_name> 
+--account-key <account_key> --output table
+Description: Lists all containers within a storage account.
+
+az storage container show --name <container_name> --account-name <storage_account_name> --account-key <account_key>
+Description: Displays details about a specific container.
+
+az storage container delete --name <container_name> --account-name <storage_account_name> --account-key <account_key>
+Description: Deletes a container from a storage account.
+
+az storage container set-permission --name <container_name> --account-name <storage_account_name> --account-key <account_key> --public-access <access_level>
+Description: Sets the public access level of a container (e.g., private, blob, or container).
+
+az storage blob upload --account-name <storage_account_name> --account-key <account_key> --container-name <container_name> --name <blob_name> --file <file_path>
+Description: Uploads a file as a blob to the specified container.
+
+az storage blob download --account-name <storage_account_name> --account-key <account_key> --container-name <container_name> --name <blob_name> --file <file_path>
+Description: Downloads a blob to a specified file path.
+
+az storage blob list --account-name <storage_account_name> --account-key <account_key> --container-name <container_name> --output table
+Description: Lists all blobs in a specified container.
+
+az storage blob show --account-name <storage_account_name> --account-key <account_key> --container-name <container_name> --name <blob_name>
+Description: Displays details about a specific blob.
+
+az storage blob delete --account-name <storage_account_name> --account-key <account_key> --container-name <container_name> --name <blob_name>
+Description: Deletes a specified blob from a container.
+
+az storage blob copy start --destination-account-name <dest_account_name> --destination-container <dest_container_name> --destination-blob <dest_blob_name> --source-uri <source_blob_uri>
+Description: Copies a blob from one location to another.
+
+az storage blob update --container-name <container_name> --name <blob_name> --account-name <storage_account_name> --account-key <account_key> --content-type <content_type>
+Description: Updates the properties of a blob, such as its content type.
+
+az storage blob generate-sas --account-name <storage_account_name> --account-key <account_key> --container-name <container_name> --name <blob_name> --permissions <permissions> --expiry <expiry_time>
+Description: Generates a Shared Access Signature (SAS) token for a specific blob.
+
+az storage account generate-sas --permissions <permissions> --account-name <storage_account_name> --expiry <expiry_time> --resource-types <resource_types> --services <services>
+Description: Generates a SAS token at the account level.
+
+az monitor metrics list --resource <storage_account_id> --metric-names UsedCapacity --interval PT1H
+Description: Monitors the storage account usage over time.
